@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  body { font-family: 'DM Sans', sans-serif; background-color: #FAF3E0; color: #2C1A0E; }
+  h1,h2,h3,h4 { font-family: 'Playfair Display', serif; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-espresso text-cream px-6 py-3 rounded-full font-body font-medium
+           hover:bg-roast transition-all duration-300 hover:scale-105 active:scale-95
+           shadow-md hover:shadow-lg inline-block;
+  }
+  .btn-outline {
+    @apply border-2 border-espresso text-espresso px-6 py-3 rounded-full font-body font-medium
+           hover:bg-espresso hover:text-cream transition-all duration-300 inline-block;
+  }
+  .card {
+    @apply bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300
+           hover:-translate-y-1 overflow-hidden;
+  }
+  .badge {
+    @apply inline-block bg-caramel text-white text-xs font-mono px-3 py-1 rounded-full uppercase tracking-wider;
+  }
+  .section-title { @apply font-display text-4xl text-espresso mb-2; }
+  .input-field {
+    @apply w-full border border-steam rounded-xl px-4 py-3 font-body bg-white
+           focus:outline-none focus:ring-2 focus:ring-caramel transition;
+  }
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #FAF3E0; }
+::-webkit-scrollbar-thumb { background: #C68642; border-radius: 3px; }
+
+@keyframes steam {
+  0%   { transform: translateY(0) scaleX(1); opacity: 0.8; }
+  50%  { transform: translateY(-15px) scaleX(1.2); opacity: 0.4; }
+  100% { transform: translateY(-30px) scaleX(0.8); opacity: 0; }
+}
+.steam-1 { animation: steam 2s ease-in-out infinite; }
+.steam-2 { animation: steam 2s ease-in-out infinite 0.4s; }
+.steam-3 { animation: steam 2s ease-in-out infinite 0.8s; }
+.page-enter { animation: fadeIn 0.5s ease forwards; }
